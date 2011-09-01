@@ -24,7 +24,7 @@ set backupdir=~/temp/ " save ~ files here
 set cinwords= " no funny indents after words useful when writing C
 set clipboard+=unnamed " add the unnamed register to the clipboard
     colorscheme liquidcarbon
-set cpoptions=c$ " see :h cpoptions
+set cpoptions=c " see :h cpoptions
 set debug=msg " error messages don't disappear immediately after startup
 set directory=~/temp/ " save swap files here
 set expandtab " use the appropriate number of spaces to insert a tab in Insert mode; use spaces in indents with > and < with autoindent on
