@@ -45,6 +45,7 @@ set smartcase " override ignorecase if search patter contains uppercases
 set smartindent " insert indent after a line ending in { or before a line starting with }
 set softtabstop=4 " number of spaces that a <Tab> counts for in insert mode
 set spell " spell-check on
+set spellsuggest=best,20 " suggest 20 of the best spelling corrections
 set statusline=%F%m%r%h%w\ %y\ [COL=%03v]\ [LINE=%04l/%04L]
 set t_Co=256 " colors
 set tabstop=4 " number of spaces that a <Tab> counts for
@@ -55,7 +56,7 @@ set wildmenu " enhanced command-line completion
 
 
 " ===================================================================
-" System-dependent options
+" System-specific options
 " ===================================================================
 if MySys() == "mac"
     if has("gui_running")
@@ -69,4 +70,19 @@ elseif MySys() == "linux"
         set columns=150
     endif
 endif
+
+
+
+" ===================================================================
+" File-specific options
+" ===================================================================
+
+" Plain text
+" -------------------------------------------------------------------
+autocmd FileType txt setlocal textwidth=70
+
+
+" Markdown
+" -------------------------------------------------------------------
+autocmd FileType mkd setlocal textwidth=70
 
