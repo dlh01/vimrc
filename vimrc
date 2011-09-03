@@ -17,6 +17,7 @@ syntax on " enable highlighting; sources $VIMRUNTIME/syntax/syntax.vim
 " ===================================================================
 " Global options
 " ===================================================================
+set autochdir " change to the directory of the buffer opened or switched into
 set autoindent " copy indent from current line when starting a new line
 set background=dark
 set backspace=2 " allow for backspacing over autoindents, line breaks, and the start of inserts
