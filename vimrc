@@ -1,16 +1,25 @@
 
 " ===================================================================
+" Pathogen.vim
+" https://github.com/tpope/vim-pathogen
+" Must be called before filetype stuff
+" ===================================================================
+call pathogen#infect()
+call pathogen#helptags()
+
+
+
+" ===================================================================
 " Filetypes
 " ===================================================================
-filetype plugin on " load plugin files for specific file types; loads ftplugin.vim in the runtimepath
-filetype indent on " load indent files for specific file types; loads indent.vim in the runtimepath
+filetype plugin indent on " load plugin and indent files for specific file types; loads ftplugin.vim and indent.vim in the runtimepath
 
 
 
 " ===================================================================
 " Syntax highlighting
 " ===================================================================
-syntax on " enable highlighting; sources $VIMRUNTIME/syntax/syntax.vim
+syntax enable " enable highlighting; sources $VIMRUNTIME/syntax/syntax.vim
 
 
 
@@ -46,8 +55,8 @@ set smartcase " override ignorecase if search patter contains uppercases
 set smartindent " insert indent after a line ending in { or before a line starting with }
 set softtabstop=4 " number of spaces that a <Tab> counts for in insert mode
 set spell " spell-check on
-set spellsuggest=best,20 " suggest 20 of the best spelling corrections
-set statusline=%F%m%r%h%w\ %y\ [COL=%03v]\ [LINE=%04l/%04L]
+set spellsuggest=best,20 " give 20 of the best spelling suggestions
+set statusline=%f%m%r%h%w\ %y\ [%{getcwd()}]\ [buf\ %n]\ [col\ %03v]\ [line\ %04l/%04L]
 set t_Co=256 " colors
 set tabstop=4 " number of spaces that a <Tab> counts for
 set textwidth=0 " by default, no max width
@@ -87,3 +96,29 @@ autocmd FileType txt setlocal textwidth=70
 " -------------------------------------------------------------------
 autocmd FileType mkd setlocal textwidth=70
 
+
+
+" ===================================================================
+" Key mappings
+" ===================================================================
+
+" Leader-driven shortcuts
+" -------------------------------------------------------------------
+map <leader>w :w<cr>
+map <leader>c :close<cr>
+nmap <leader>dq :call DumbQuotes()<cr><cr>
+
+
+
+" ===================================================================
+" Functions
+" ===================================================================
+function! DumbQuotes()
+    :%s/’/'/g
+    :%s/‘/'/g
+    :%s/“/"/g
+    :%s/”/"/g
+    :%s/—/--/g
+    :%s/–/--/g
+    :%s/…/.../g
+endfunction
