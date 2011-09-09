@@ -111,7 +111,7 @@ autocmd FileType mkd setlocal textwidth=70
 " Quick save
 map <leader>w :w<cr>
 " Assuming I'll never purposely write ',w' allow me to type it to save in insert mode
-inoremap <leader>w <C-o>:w<cr>
+imap <leader>w <C-o>:w<cr>
 " Quick close window
 map <leader>c :close<cr>
 " Quick call DumbQuotes
@@ -130,14 +130,14 @@ map <C-l> <C-w>l
 " Other
 " -------------------------------------------------------------------
 " Remap : to ;
-noremap ; :
+map ; :
 " Quickly reformat paragraph
 nmap Q gqap
 " Move up and down by screen line, not file line
-nnoremap j gj
-nnoremap k gk
+nmap j gj
+nmap k gk
 " Go back to normal mode
-inoremap jj <Esc>
+imap jj <Esc>
 
 
 
