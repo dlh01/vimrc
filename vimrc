@@ -1,9 +1,11 @@
 
+
+
 " ===================================================================
 " Pathogen.vim
+" ===================================================================
 " https://github.com/tpope/vim-pathogen
 " Must be called before filetype stuff
-" ===================================================================
 call pathogen#infect()
 call pathogen#helptags()
 
@@ -26,6 +28,7 @@ syntax enable " enable highlighting; sources $VIMRUNTIME/syntax/syntax.vim
 " ===================================================================
 " Global options
 " ===================================================================
+let mapleader=","
 set autochdir " change to the directory of the buffer opened or switched into
 set autoindent " copy indent from current line when starting a new line
 set background=dark
@@ -38,6 +41,7 @@ set cpoptions=c " see :h cpoptions
 set debug=msg " error messages don't disappear immediately after startup
 set directory=~/temp/ " save swap files here
 set expandtab " use the appropriate number of spaces to insert a tab in Insert mode; use spaces in indents with > and < with autoindent on
+set gdefault " search and replace globally "/g/" by default
 set guioptions+=mg " see :h guioptions
 set guioptions-=T " no toolbar in gui
 set hidden " allow hiding unmodified buffers
@@ -99,14 +103,53 @@ autocmd FileType mkd setlocal textwidth=70
 
 
 " ===================================================================
-" Key mappings
+" Global key mappings
 " ===================================================================
 
-" Leader-driven shortcuts
+" Leader-based shortcuts
 " -------------------------------------------------------------------
+" Quick save
 map <leader>w :w<cr>
+" Assuming I'll never purposely write ',w' allow me to type it to save in insert mode
+inoremap <leader>w <C-o>:w<cr>
+" Quick close window
 map <leader>c :close<cr>
+" Quick call DumbQuotes
 nmap <leader>dq :call DumbQuotes()<cr><cr>
+
+
+" Windows and buffers
+" -------------------------------------------------------------------
+" Easy window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+
+" Other
+" -------------------------------------------------------------------
+" Remap : to ;
+noremap ; :
+" Quickly reformat paragraph
+nmap Q gqap
+" Move up and down by screen line, not file line
+nnoremap j gj
+nnoremap k gk
+" Go back to normal mode
+inoremap jj <Esc>
+
+
+
+" ===================================================================
+" Plugin-specific preferences and key mappings
+" ===================================================================
+
+" Lusty Juggler
+" -------------------------------------------------------------------
+let g:LustyJugglerShowKeys = 'a' " display key with buffer name
+" open the buffer juggler, recommended by the author
+map <leader>j <leader>lj
 
 
 
