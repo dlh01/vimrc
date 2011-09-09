@@ -60,7 +60,7 @@ set smartindent " insert indent after a line ending in { or before a line starti
 set softtabstop=4 " number of spaces that a <Tab> counts for in insert mode
 set spell " spell-check on
 set spellsuggest=best,20 " give 20 of the best spelling suggestions
-set statusline=%f%m%r%h%w\ %y\ [%{getcwd()}]\ [buf\ %n]\ [col\ %03v]\ [line\ %04l/%04L]
+set statusline=%f%m%r%h%w\ %y\ [%{getcwd()}]\ [buf\ %n]\ [col\ %03v]\ [line\ %04l/%04L]\ %{fugitive#statusline()}
 set t_Co=256 " colors
 set tabstop=4 " number of spaces that a <Tab> counts for
 set textwidth=0 " by default, no max width
@@ -106,14 +106,16 @@ autocmd FileType mkd setlocal textwidth=70
 " Global key mappings
 " ===================================================================
 
-" Leader-based shortcuts
+" Leader-based shortcuts separated by modes
 " -------------------------------------------------------------------
 " Quick save
 map <leader>w :w<cr>
-" Assuming I'll never purposely write ',w' allow me to type it to save in insert mode
-imap <leader>w <C-o>:w<cr>
+" Quick save and quit
+map <leader>x :x<cr>
 " Quick close window
 map <leader>c :close<cr>
+" Assuming I'll never purposely write ',w' allow me to type it to save in insert mode
+imap <leader>w <C-o>:w<cr>
 " Quick call DumbQuotes
 nmap <leader>dq :call DumbQuotes()<cr><cr>
 
