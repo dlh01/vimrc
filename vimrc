@@ -75,13 +75,13 @@ set wildmenu " enhanced command-line completion
 if MySys() == "mac"
     if has("gui_running")
         set lines=80
-        set columns=150
+        set columns=170
     endif
 elseif MySys() == "linux"
     set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
     if has("gui_running")
         set lines=48
-        set columns=150
+        set columns=170
     endif
 endif
 
@@ -101,6 +101,11 @@ autocmd FileType txt setlocal textwidth=70
 autocmd FileType mkd setlocal textwidth=70
 
 
+" vimrc
+" -------------------------------------------------------------------
+" when vimrc is written, reload it
+autocmd! bufwritepost vimrc source ~/Dropbox/vim/vimrc
+
 
 " ===================================================================
 " Global key mappings
@@ -114,6 +119,8 @@ map <leader>w :w<cr>
 map <leader>x :x<cr>
 " Quick close window
 map <leader>c :close<cr>
+" Quick open vimrc
+map <leader>ev :sp ~/Dropbox/vim/vimrc<cr>
 " Assuming I'll never purposely write ',w' allow me to type it to save in insert mode
 imap <leader>w <C-o>:w<cr>
 " Quick call DumbQuotes
