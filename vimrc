@@ -29,7 +29,6 @@ syntax enable " enable highlighting; sources $VIMRUNTIME/syntax/syntax.vim
 " Global options
 " ===================================================================
 let mapleader=","
-set autochdir " change to the directory of the buffer opened or switched into
 set autoindent " copy indent from current line when starting a new line
 set background=dark
 set backspace=2 " allow for backspacing over autoindents, line breaks, and the start of inserts
@@ -60,11 +59,11 @@ set smartindent " insert indent after a line ending in { or before a line starti
 set softtabstop=4 " number of spaces that a <Tab> counts for in insert mode
 set spell " spell-check on
 set spellsuggest=best,20 " give 20 of the best spelling suggestions
-set statusline=%f%m%r%h%w\ %y\ [%{getcwd()}]\ [buf\ %n]\ [col\ %03v]\ [line\ %04l/%04L]\ %{fugitive#statusline()}
+set statusline=[%{getcwd()}]\ [%f%m%r%h%w]\ %y\ [buf\ %n]\ [col\ %03v]\ [line\ %04l/%04L]\ %{fugitive#statusline()}
 set t_Co=256 " colors
 set tabstop=4 " number of spaces that a <Tab> counts for
 set textwidth=0 " by default, no max width
-set whichwrap+=<,>,h,l " left, right, h, and l move to previous and next line
+set whichwrap+=<,>,[,],h,l " left, right, h, and l move to previous and next line
 set wildmenu " enhanced command-line completion
 
 
@@ -76,9 +75,13 @@ if MySys() == "mac"
     if has("gui_running")
         set lines=80
         set columns=170
+        set relativenumber " count lines relative to current line
+        set autochdir " change to the directory of the buffer opened or switched into; not in CLI vim
     endif
+    let g:LustyJugglerSuppressRubyWarning = 1 " terminal vim lacks ruby support
 elseif MySys() == "linux"
     set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
+    set autochdir " change to the directory of the buffer opened or switched into
     if has("gui_running")
         set lines=48
         set columns=170
@@ -107,6 +110,7 @@ autocmd FileType mkd setlocal textwidth=70
 autocmd! bufwritepost vimrc source ~/Dropbox/vim/vimrc
 
 
+
 " ===================================================================
 " Global key mappings
 " ===================================================================
@@ -121,13 +125,22 @@ map <leader>x :x<cr>
 map <leader>c :close<cr>
 " Quick open vimrc
 map <leader>ev :sp ~/Dropbox/vim/vimrc<cr>
-" Assuming I'll never purposely write ',w' allow me to type it to save in insert mode
+" Assuming I'll never purposely write ',w' or ',x' allow me to type them in insert mode
 imap <leader>w <C-o>:w<cr>
+imap <leader>x <C-o>:x<cr>
+" Go back to normal mode
+imap <leader><leader> <Esc>
 " Quick call DumbQuotes
 nmap <leader>dq :call DumbQuotes()<cr><cr>
+" ~~ Common commands mapped to numbers ~~
+" Turn spellcheck off
+nmap <leader>1 :set nospell<cr>
+" Sort alphabetically
+nmap <silent> <leader>2 :sort<cr>
 
 
-" Windows and buffers
+
+" Window and buffer management
 " -------------------------------------------------------------------
 " Easy window navigation
 map <C-h> <C-w>h
@@ -145,8 +158,6 @@ nmap Q gqap
 " Move up and down by screen line, not file line
 nmap j gj
 nmap k gk
-" Go back to normal mode
-imap jj <Esc>
 
 
 
