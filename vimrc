@@ -35,7 +35,7 @@ set backspace=2 " allow for backspacing over autoindents, line breaks, and the s
 set backupdir=~/temp/ " save ~ files here
 set cinwords= " no funny indents after words useful when writing C
 set clipboard+=unnamed " add the unnamed register to the clipboard
-    colorscheme liquidcarbon
+    colorscheme solarized
 set cpoptions=c " see :h cpoptions
 set debug=msg " error messages don't disappear immediately after startup
 set directory=~/temp/ " save swap files here
@@ -59,7 +59,7 @@ set smartindent " insert indent after a line ending in { or before a line starti
 set softtabstop=4 " number of spaces that a <Tab> counts for in insert mode
 set spell " spell-check on
 set spellsuggest=best,20 " give 20 of the best spelling suggestions
-set statusline=[%{getcwd()}]\ [%f%m%r%h%w]\ %y\ [buf\ %n]\ [col\ %03v]\ [line\ %04l/%04L]\ %{fugitive#statusline()}
+set statusline=[%{getcwd()}]\ [%f%m%r%h%w]\ %y\ [col\ %03v]\ [line\ %04l/%04L]\ %{fugitive#statusline()}
 set t_Co=256 " colors
 set tabstop=4 " number of spaces that a <Tab> counts for
 set textwidth=0 " by default, no max width
@@ -137,6 +137,8 @@ nmap <leader>dq :call DumbQuotes()<cr><cr>
 nmap <leader>1 :set nospell<cr>
 " Sort alphabetically
 nmap <silent> <leader>2 :sort<cr>
+" Wipe out all buffers (presumably)
+nmap <leader>0 :1,100bd<cr>
 
 
 
