@@ -123,6 +123,8 @@ map <leader>w :w<cr>
 map <leader>x :x<cr>
 " Quick close window
 map <leader>c :close<cr>
+" Quick quit
+map <leader>q :q<cr>
 " Quick open vimrc
 map <leader>ev :sp ~/Dropbox/vim/vimrc<cr>
 " Assuming I'll never purposely write ',w' or ',x' allow me to type them in insert mode
@@ -172,6 +174,11 @@ nmap k gk
 let g:LustyJugglerShowKeys = 'a' " display key with buffer name
 " open the buffer juggler, recommended by the author
 map <leader>j <leader>lj
+
+
+" Solarized
+" -------------------------------------------------------------------
+call togglebg#map("<F5>") " switch light/dark backgrounds
 
 
 
