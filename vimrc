@@ -140,7 +140,7 @@ nmap <leader>1 :set nospell<cr>
 " Sort alphabetically
 nmap <silent> <leader>2 :sort<cr>
 " Wipe out all buffers (presumably)
-nmap <leader>0 :1,100bd<cr>
+nmap <leader>0 :1,100bd<cr>:echo "Deleted all buffers (probably)"<cr>
 
 
 
