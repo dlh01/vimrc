@@ -77,6 +77,7 @@ if MySys() == "mac"
         set columns=170
         set relativenumber " count lines relative to current line
         set autochdir " change to the directory of the buffer opened or switched into; not in CLI vim
+        set guifont=Anonymous\ Pro:h12
     endif
     let g:LustyJugglerSuppressRubyWarning = 1 " terminal vim lacks ruby support
 elseif MySys() == "linux"
@@ -119,12 +120,14 @@ autocmd! bufwritepost vimrc source ~/Dropbox/vim/vimrc
 " -------------------------------------------------------------------
 " Quick save
 map <leader>w :w<cr>
-" Quick save and quit
-map <leader>x :x<cr>
 " Quick close window
 map <leader>c :close<cr>
+" Quick delete buffer
+map <leader>b :bd<cr>
 " Quick quit
 map <leader>q :q<cr>
+" Quick save and quit
+map <leader>x :x<cr>
 " Quick open vimrc
 map <leader>ev :sp ~/Dropbox/vim/vimrc<cr>
 " Assuming I'll never purposely write ',w' or ',x' allow me to type them in insert mode
@@ -133,7 +136,7 @@ imap <leader>x <C-o>:x<cr>
 " Go back to normal mode
 imap <leader><leader> <Esc>
 " Quick call DumbQuotes
-nmap <leader>dq :call DumbQuotes()<cr><cr>
+nmap <leader>3 :call DumbQuotes()<cr><cr>
 " ~~ Common commands mapped to numbers ~~
 " Turn spellcheck off
 nmap <leader>1 :set nospell<cr>
