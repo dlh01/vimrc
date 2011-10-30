@@ -53,15 +53,15 @@ set mousehide " hide mouse when typing
 set novisualbell " my eyes!
 set number " show line numbers
 set scrolloff=8 " keep N lines at the top or bottom while scrolling
-set shiftwidth=4 " number of spaces that an (auto)indent uses (>>, <<, etc)
+set shiftwidth=2 " number of spaces that an (auto)indent uses (>>, <<, etc)
 set smartcase " override ignorecase if search patter contains uppercases
 set smartindent " insert indent after a line ending in { or before a line starting with }
-set softtabstop=4 " number of spaces that a <Tab> counts for in insert mode
+set softtabstop=2 " number of spaces that a <Tab> counts for in insert mode
 set spell " spell-check on
 set spellsuggest=best,20 " give 20 of the best spelling suggestions
 set statusline=[%{getcwd()}]\ [%f%m%r%h%w]\ %y\ [col\ %03v]\ [line\ %04l/%04L]\ %{fugitive#statusline()}
 set t_Co=256 " colors
-set tabstop=4 " number of spaces that a <Tab> counts for
+set tabstop=2 " number of spaces that a <Tab> counts for
 set textwidth=0 " by default, no max width
 set whichwrap+=<,>,[,],h,l " left, right, h, and l move to previous and next line
 set wildmenu " enhanced command-line completion
@@ -77,7 +77,8 @@ if MySys() == "mac"
         set columns=170
         set relativenumber " count lines relative to current line
         set autochdir " change to the directory of the buffer opened or switched into; not in CLI vim
-        set guifont=Anonymous\ Pro:h12
+        " set guifont=Anonymous\ Pro:h12
+        set guifont=Droid\ Sans\ Mono:h10
     endif
     let g:LustyJugglerSuppressRubyWarning = 1 " terminal vim lacks ruby support
 elseif MySys() == "linux"
@@ -135,13 +136,15 @@ imap <leader>w <C-o>:w<cr>
 imap <leader>x <C-o>:x<cr>
 " Go back to normal mode
 imap <leader><leader> <Esc>
-" Quick call DumbQuotes
-nmap <leader>3 :call DumbQuotes()<cr><cr>
 " ~~ Common commands mapped to numbers ~~
 " Turn spellcheck off
 nmap <leader>1 :set nospell<cr>
 " Sort alphabetically
 nmap <silent> <leader>2 :sort<cr>
+" Quick call DumbQuotes
+nmap <leader>3 :call DumbQuotes()<cr><cr>
+" Global search and replace
+nmap <leader>5 :%s/
 " Wipe out all buffers (presumably)
 nmap <leader>0 :1,100bd<cr>:echo "Deleted all buffers (probably)"<cr>
 
