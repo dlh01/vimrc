@@ -130,12 +130,14 @@ map <leader>q :q<cr>
 " Quick save and quit
 map <leader>x :x<cr>
 " Quick open vimrc
-map <leader>ev :sp ~/Dropbox/vim/vimrc<cr>
+map <leader>ev :e ~/Dropbox/vim/vimrc<cr>
 " Assuming I'll never purposely write ',w' or ',x' allow me to type them in insert mode
 imap <leader>w <C-o>:w<cr>
 imap <leader>x <C-o>:x<cr>
 " Go back to normal mode
 imap <leader><leader> <Esc>
+" Open webpage
+nmap <silent> <leader>f :! open %<cr><cr>
 " ~~ Common commands mapped to numbers ~~
 " Turn spellcheck off
 nmap <leader>1 :set nospell<cr>
@@ -187,6 +189,10 @@ map <leader>j <leader>lj
 call togglebg#map("<F5>") " switch light/dark backgrounds
 
 
+" Gundo
+" -------------------------------------------------------------------
+nnoremap <F6> :GundoToggle<cr>
+
 
 " ===================================================================
 " Functions
@@ -196,7 +202,7 @@ function! DumbQuotes()
     :%s/‘/'/g
     :%s/“/"/g
     :%s/”/"/g
-    :%s/—/--/g
+    :%s/—/---/g
     :%s/–/--/g
     :%s/…/.../g
 endfunction
