@@ -38,7 +38,7 @@ set clipboard+=unnamed " add the unnamed register to the clipboard
     colorscheme solarized
 set cpoptions=c " see :h cpoptions
 set debug=msg " error messages don't disappear immediately after startup
-set directory=~/temp/ " save swap files here
+set directory=~/Dropbox/vim/swp/ " save swap files here
 set expandtab " use the appropriate number of spaces to insert a tab in Insert mode; use spaces in indents with > and < with autoindent on
 set gdefault " search and replace globally "/g/" by default
 set guioptions+=mg " see :h guioptions
@@ -49,6 +49,7 @@ set ignorecase " ignore case in searches
 set incsearch " search incrementally
 set laststatus=2 " always display a status line
 set linebreak " display linebreaks by word, not character
+set listchars=tab:▸\ ,eol:¬ " specify tab and EOL characters used in :set list (or :set list!)
 set mousehide " hide mouse when typing
 set novisualbell " my eyes!
 set number " show line numbers
@@ -191,7 +192,7 @@ call togglebg#map("<F5>") " switch light/dark backgrounds
 
 " Gundo
 " -------------------------------------------------------------------
-nnoremap <F6> :GundoToggle<cr>
+nnoremap <silent> <F6> :GundoToggle<cr>
 
 
 " ===================================================================
