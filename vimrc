@@ -12,6 +12,13 @@ call pathogen#helptags()
 
 
 " ===================================================================
+" Preamble
+" ===================================================================
+set nocompatible
+
+
+
+" ===================================================================
 " Filetypes
 " ===================================================================
 filetype plugin indent on " load plugin and indent files for specific file types; loads ftplugin.vim and indent.vim in the runtimepath
@@ -39,12 +46,13 @@ set clipboard+=unnamed " add the unnamed register to the clipboard
 set cpoptions=c " see :h cpoptions
 set debug=msg " error messages don't disappear immediately after startup
 set directory=~/Dropbox/vim/swp/ " save swap files here
+set encoding=utf-8
 set expandtab " use the appropriate number of spaces to insert a tab in Insert mode; use spaces in indents with > and < with autoindent on
 set gdefault " search and replace globally "/g/" by default
 set guioptions+=mg " see :h guioptions
 set guioptions-=T " no toolbar in gui
 set hidden " allow hiding unmodified buffers
-set history=100
+set history=1000
 set ignorecase " ignore case in searches
 set incsearch " search incrementally
 set laststatus=2 " always display a status line
@@ -60,12 +68,19 @@ set smartindent " insert indent after a line ending in { or before a line starti
 set softtabstop=2 " number of spaces that a <Tab> counts for in insert mode
 set spell " spell-check on
 set spellsuggest=best,20 " give 20 of the best spelling suggestions
+set splitbelow " vsplit new windows below the current window
+set splitright " split new windows to the right of the current window
 set statusline=[%{getcwd()}]\ [%f%m%r%h%w]\ %y\ [col\ %03v]\ [line\ %04l/%04L]\ %{fugitive#statusline()}
 set t_Co=256 " colors
 set tabstop=2 " number of spaces that a <Tab> counts for
 set textwidth=0 " by default, no max width
 set whichwrap+=<,>,[,],h,l " left, right, h, and l move to previous and next line
 set wildmenu " enhanced command-line completion
+set wildignore+=.git " version control
+set wildignore+=*.aux,*.out,*.toc " LaTeX intermediary files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg " binary images
+set wildignore+=*.DS_Store " OSX bullshit
+set undofile " create an undo file
 
 
 
