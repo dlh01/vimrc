@@ -71,7 +71,8 @@ set spell " spell-check on
 set spellsuggest=best,20 " give 20 of the best spelling suggestions
 set splitbelow " vsplit new windows below the current window
 set splitright " split new windows to the right of the current window
-set statusline=%f    " Path.
+set statusline=\     
+set statusline+=%f    " Path.
 set statusline+=%m   " Modified flag.
 set statusline+=%r   " Readonly flag.
 set statusline+=%w   " Preview window flag.
@@ -88,6 +89,7 @@ set statusline+=%{&ft}                        " Type (python).
 set statusline+=)
 " Line and column position and counts.
 set statusline+=\ (line\ %l\/%L,\ col\ %03c)
+set statusline+=\   
 set t_Co=256 " colors
 set tabstop=2 " number of spaces that a <Tab> counts for
 set textwidth=0 " by default, no max width
@@ -98,8 +100,18 @@ set wildignore+=*.aux,*.out,*.toc " LaTeX intermediary files
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg " binary images
 set wildignore+=*.sw? " Vim swap files
 set wildignore+=*.DS_Store " OSX bullshit
-set undofile " create an undo file
-set undodir=~/Dropbox/vim/tmp/undo/ " put undo files here
+
+
+
+" ===================================================================
+" GUI-only options
+" ===================================================================
+if has("gui_running")
+  set autochdir " change to the directory of the buffer opened or switched into; not in CLI vim
+  set relativenumber " count lines relative to current line
+  set undofile " create an undo file
+  set undodir=~/Dropbox/vim/tmp/undo/ " put undo files here
+endif
 
 
 
@@ -110,10 +122,8 @@ if MySys() == "mac"
     if has("gui_running")
         set lines=80
         set columns=170
-        set relativenumber " count lines relative to current line
-        set autochdir " change to the directory of the buffer opened or switched into; not in CLI vim
-        " set guifont=Anonymous\ Pro:h12
-        set guifont=Droid\ Sans\ Mono:h10
+        set guifont=Anonymous\ Pro:h12
+        " set guifont=Droid\ Sans\ Mono:h10
     endif
     let g:LustyJugglerSuppressRubyWarning = 1 " terminal vim lacks ruby support
 elseif MySys() == "linux"
