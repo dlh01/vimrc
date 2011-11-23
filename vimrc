@@ -39,13 +39,14 @@ let mapleader=","
 set autoindent " copy indent from current line when starting a new line
 set background=dark
 set backspace=2 " allow for backspacing over autoindents, line breaks, and the start of inserts
-set backupdir=~/temp/ " save ~ files here
+set backup " save backups
+set backupdir=~/Dropbox/vim/tmp/backup/ " save backup files here
 set cinwords= " no funny indents after words useful when writing C
 set clipboard+=unnamed " add the unnamed register to the clipboard
     colorscheme solarized
 set cpoptions=c " see :h cpoptions
 set debug=msg " error messages don't disappear immediately after startup
-set directory=~/Dropbox/vim/swp/ " save swap files here
+set directory=~/Dropbox/vim/tmp/swap/ " save swap files here
 set encoding=utf-8
 set expandtab " use the appropriate number of spaces to insert a tab in Insert mode; use spaces in indents with > and < with autoindent on
 set gdefault " search and replace globally "/g/" by default
@@ -70,7 +71,23 @@ set spell " spell-check on
 set spellsuggest=best,20 " give 20 of the best spelling suggestions
 set splitbelow " vsplit new windows below the current window
 set splitright " split new windows to the right of the current window
-set statusline=[%{getcwd()}]\ [%f%m%r%h%w]\ %y\ [col\ %03v]\ [line\ %04l/%04L]\ %{fugitive#statusline()}
+set statusline=%f    " Path.
+set statusline+=%m   " Modified flag.
+set statusline+=%r   " Readonly flag.
+set statusline+=%w   " Preview window flag.
+set statusline+=\    " Space.
+set statusline+=%{fugitive#statusline()}
+set statusline+=%=   " Right align.
+" File format, encoding and type.  Ex: "(unix/utf-8/python)"
+set statusline+=(
+set statusline+=%{&ff}                        " Format (unix/DOS).
+set statusline+=/
+set statusline+=%{strlen(&fenc)?&fenc:&enc}   " Encoding (utf-8).
+set statusline+=/
+set statusline+=%{&ft}                        " Type (python).
+set statusline+=)
+" Line and column position and counts.
+set statusline+=\ (line\ %l\/%L,\ col\ %03c)
 set t_Co=256 " colors
 set tabstop=2 " number of spaces that a <Tab> counts for
 set textwidth=0 " by default, no max width
@@ -79,13 +96,15 @@ set wildmenu " enhanced command-line completion
 set wildignore+=.git " version control
 set wildignore+=*.aux,*.out,*.toc " LaTeX intermediary files
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg " binary images
+set wildignore+=*.sw? " Vim swap files
 set wildignore+=*.DS_Store " OSX bullshit
 set undofile " create an undo file
+set undodir=~/Dropbox/vim/tmp/undo/ " put undo files here
 
 
 
 " ===================================================================
-" System-specific options
+" OS-specific options
 " ===================================================================
 if MySys() == "mac"
     if has("gui_running")
@@ -126,6 +145,14 @@ autocmd FileType mkd setlocal textwidth=70
 " -------------------------------------------------------------------
 " when vimrc is written, reload it
 autocmd! bufwritepost vimrc source ~/Dropbox/vim/vimrc
+
+
+
+" ===================================================================
+" Global autocommands
+" ===================================================================
+" resize splits when the window is resized
+autocmd VimResized * exe "normal! \<c-w>="
 
 
 
@@ -222,3 +249,4 @@ function! DumbQuotes()
     :%s/–/--/g
     :%s/…/.../g
 endfunction
+
