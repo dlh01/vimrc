@@ -49,6 +49,7 @@ set debug=msg " error messages don't disappear immediately after startup
 set directory=~/Dropbox/vim/tmp/swap/ " save swap files here
 set encoding=utf-8
 set expandtab " use the appropriate number of spaces to insert a tab in Insert mode; use spaces in indents with > and < with autoindent on
+set foldlevelstart=1 " start editing with some (not all) folds closed
 set gdefault " search and replace globally "/g/" by default
 set guioptions+=mg " see :h guioptions
 set guioptions-=T " no toolbar in gui
@@ -63,7 +64,10 @@ set mousehide " hide mouse when typing
 set novisualbell " my eyes!
 set number " show line numbers
 set scrolloff=8 " keep N lines at the top or bottom while scrolling
+set sidescroll=1 " minimal number of columns to scroll horizontally
+set sidescrolloff=8 " keep N lines to the left and right of cursor if 'nowrap' is set
 set shiftwidth=2 " number of spaces that an (auto)indent uses (>>, <<, etc)
+set showmatch " when a bracket is inserted, briefly jump to the matching one
 set smartcase " override ignorecase if search patter contains uppercases
 set smartindent " insert indent after a line ending in { or before a line starting with }
 set softtabstop=2 " number of spaces that a <Tab> counts for in insert mode
@@ -79,6 +83,7 @@ set statusline+=%w   " Preview window flag.
 set statusline+=\    " Space.
 set statusline+=%{fugitive#statusline()}
 set statusline+=%=   " Right align.
+set statusline+=(%{getcwd()})\  " get current working directory
 " File format, encoding and type.  Ex: "(unix/utf-8/python)"
 set statusline+=(
 set statusline+=%{&ff}                        " Format (unix/DOS).
@@ -121,8 +126,8 @@ endif
 if MySys() == "mac"
     if has("gui_running")
         set lines=80
-        set columns=170
-        set guifont=Anonymous\ Pro:h12
+        set columns=140
+        set guifont=Menlo:h11
         " set guifont=Droid\ Sans\ Mono:h10
     endif
     let g:LustyJugglerSuppressRubyWarning = 1 " terminal vim lacks ruby support
@@ -141,14 +146,29 @@ endif
 " File-specific options
 " ===================================================================
 
-" Plain text
+" CSS and Less
 " -------------------------------------------------------------------
-autocmd FileType txt setlocal textwidth=70
+autocmd BufNewFile,BufRead *.less setlocal filetype=less
+autocmd FileType less,css setlocal foldmethod=marker " tell where folds begin and end
+autocmd FileType less,css setlocal foldmarker={,} " fold on these
 
 
 " Markdown
 " -------------------------------------------------------------------
 autocmd FileType mkd setlocal textwidth=70
+
+
+" Plain text
+" -------------------------------------------------------------------
+autocmd FileType txt setlocal textwidth=70
+
+
+" Python
+" -------------------------------------------------------------------
+autocmd Filetype py setlocal tabstop=4
+autocmd Filetype py setlocal shiftwidth=4
+autocmd Filetype py setlocal smarttab
+autocmd Filetype py setlocal formatoptions=croql
 
 
 " vimrc
@@ -184,7 +204,7 @@ map <leader>q :q<cr>
 map <leader>x :x<cr>
 " Quick open vimrc
 map <leader>ev :e ~/Dropbox/vim/vimrc<cr>
-" Assuming I'll never purposely write ',w' or ',x' allow me to type them in insert mode
+" Assuming I'll never purposely write ',w' or ',x', etc, allow me to type them in insert mode
 imap <leader>w <C-o>:w<cr>
 imap <leader>x <C-o>:x<cr>
 " Go back to normal mode
@@ -213,6 +233,11 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Keep search matches in the middle of the window
+nnoremap n nzz
+nnoremap N Nzz
+
+
 
 " Other
 " -------------------------------------------------------------------
@@ -223,6 +248,8 @@ nmap Q gqap
 " Move up and down by screen line, not file line
 nmap j gj
 nmap k gk
+" Go away, manual key
+nnoremap K <nop>
 
 
 
@@ -259,4 +286,3 @@ function! DumbQuotes()
     :%s/–/--/g
     :%s/…/.../g
 endfunction
-
