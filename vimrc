@@ -149,8 +149,6 @@ endif
 " CSS and Less
 " -------------------------------------------------------------------
 autocmd BufNewFile,BufRead *.less setlocal filetype=less
-autocmd FileType less,css setlocal foldmethod=marker " tell where folds begin and end
-autocmd FileType less,css setlocal foldmarker={,} " fold on these
 
 
 " Markdown
