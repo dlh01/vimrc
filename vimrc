@@ -60,9 +60,11 @@ set incsearch " search incrementally
 set laststatus=2 " always display a status line
 set linebreak " display linebreaks by word, not character
 set listchars=tab:▸\ ,eol:¬ " specify tab and EOL characters used in :set list (or :set list!)
+set matchtime=2 " milliseconds of highlighting matching bracket (from 'showmatch')
 set mousehide " hide mouse when typing
 set novisualbell " my eyes!
 set number " show line numbers
+set pastetoggle=<F7> " toggle paste
 set scrolloff=8 " keep N lines at the top or bottom while scrolling
 set sidescroll=1 " minimal number of columns to scroll horizontally
 set sidescrolloff=8 " keep N lines to the left and right of cursor if 'nowrap' is set
@@ -83,7 +85,7 @@ set statusline+=%w   " Preview window flag.
 set statusline+=\    " Space.
 set statusline+=%{fugitive#statusline()}
 set statusline+=%=   " Right align.
-set statusline+=(%{getcwd()})\  " get current working directory
+"set statusline+=(%{getcwd()})\  " get current working directory
 " File format, encoding and type.  Ex: "(unix/utf-8/python)"
 set statusline+=(
 set statusline+=%{&ff}                        " Format (unix/DOS).
@@ -98,6 +100,7 @@ set statusline+=\
 set t_Co=256 " colors
 set tabstop=2 " number of spaces that a <Tab> counts for
 set textwidth=0 " by default, no max width
+set timeoutlen=500 " allow half a second to finish a command
 set whichwrap+=<,>,[,],h,l " left, right, h, and l move to previous and next line
 set wildmenu " enhanced command-line completion
 set wildignore+=.git " version control
@@ -207,6 +210,7 @@ imap <leader>w <C-o>:w<cr>
 imap <leader>x <C-o>:x<cr>
 " Go back to normal mode
 imap <leader><leader> <Esc>
+inoremap jk <Esc>
 " Open webpage
 nmap <silent> <leader>f :! open %<cr><cr>
 " ~~ Common commands mapped to numbers ~~
@@ -219,7 +223,7 @@ nmap <leader>3 :call DumbQuotes()<cr><cr>
 " Global search and replace
 nmap <leader>5 :%s/
 " Wipe out all buffers (presumably)
-nmap <leader>0 :1,100bd<cr>:echo "Deleted all buffers (probably)"<cr>
+nmap <leader>0 :1,100bd<cr>:echo "Deleted 100 buffers"<cr>
 
 
 
@@ -270,6 +274,7 @@ call togglebg#map("<F5>") " switch light/dark backgrounds
 " Gundo
 " -------------------------------------------------------------------
 nnoremap <silent> <F6> :GundoToggle<cr>
+let g:gundo_preview_bottom = 1
 
 
 " ===================================================================
