@@ -155,7 +155,7 @@ autocmd BufNewFile,BufRead *.less setlocal filetype=less
 
 " Markdown
 " -------------------------------------------------------------------
-autocmd FileType mkd setlocal textwidth=70
+autocmd FileType markdown setlocal textwidth=70
 
 
 " Plain text
