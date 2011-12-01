@@ -1,40 +1,39 @@
 
 
 
-" ===================================================================
-" Pathogen.vim
-" ===================================================================
+" Pathogen.vim {{{
+"
+
 " https://github.com/tpope/vim-pathogen
 " Must be called before filetype stuff
 call pathogen#infect()
 call pathogen#helptags()
 
 
-
-" ===================================================================
-" Preamble
-" ===================================================================
+" }}}
+" Preamble {{{
+"
 set nocompatible
 
 
 
-" ===================================================================
-" Filetypes
-" ===================================================================
+" }}}
+" Filetypes {{{
+"
 filetype plugin indent on " load plugin and indent files for specific file types; loads ftplugin.vim and indent.vim in the runtimepath
 
 
 
-" ===================================================================
-" Syntax highlighting
-" ===================================================================
+" }}}
+" Syntax highlighting {{{
+"
 syntax enable " enable highlighting; sources $VIMRUNTIME/syntax/syntax.vim
 
 
 
-" ===================================================================
-" Global options
-" ===================================================================
+" }}}
+" Global options {{{
+"
 let mapleader=","
 set autoindent " copy indent from current line when starting a new line
 set background=dark
@@ -111,9 +110,9 @@ set wildignore+=*.DS_Store " OSX bullshit
 
 
 
-" ===================================================================
-" GUI-only options
-" ===================================================================
+" }}}
+" GUI-only options {{{
+"
 if has("gui_running")
   set autochdir " change to the directory of the buffer opened or switched into; not in CLI vim
   set relativenumber " count lines relative to current line
@@ -123,9 +122,9 @@ endif
 
 
 
-" ===================================================================
-" OS-specific options
-" ===================================================================
+" }}}
+" OS-specific options {{{
+"
 if MySys() == "mac"
     if has("gui_running")
         set lines=80
@@ -145,9 +144,9 @@ endif
 
 
 
-" ===================================================================
-" File-specific options
-" ===================================================================
+" }}}
+" Filetype-specific options {{{
+"
 
 " CSS and Less
 " -------------------------------------------------------------------
@@ -172,24 +171,25 @@ autocmd Filetype py setlocal smarttab
 autocmd Filetype py setlocal formatoptions=croql
 
 
-" vimrc
+" Vim
 " -------------------------------------------------------------------
 " when vimrc is written, reload it
 autocmd! bufwritepost vimrc source ~/Dropbox/vim/vimrc
+autocmd FileType vim setlocal foldmethod=marker
 
 
 
-" ===================================================================
-" Global autocommands
-" ===================================================================
+" }}}
+" Global autocommands {{{
+"
 " resize splits when the window is resized
 autocmd VimResized * exe "normal! \<c-w>="
 
 
 
-" ===================================================================
-" Global key mappings
-" ===================================================================
+" }}}
+" Global key mappings {{{
+"
 
 " Leader-based shortcuts separated by modes
 " -------------------------------------------------------------------
@@ -255,9 +255,9 @@ nnoremap K <nop>
 
 
 
-" ===================================================================
-" Plugin-specific preferences and key mappings
-" ===================================================================
+" }}}
+" Plugin-specific preferences and key mappings {{{
+"
 
 " Lusty Juggler
 " -------------------------------------------------------------------
@@ -277,9 +277,17 @@ nnoremap <silent> <F6> :GundoToggle<cr>
 let g:gundo_preview_bottom = 1
 
 
-" ===================================================================
-" Functions
-" ===================================================================
+" Fugitive
+" -------------------------------------------------------------------
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gw :Gwrite<cr>
+nnoremap <leader>gc :Gcommit<cr>
+
+
+" }}}
+" Functions {{{
+"
 function! DumbQuotes()
     :%s/’/'/g
     :%s/‘/'/g
