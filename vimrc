@@ -39,13 +39,13 @@ set autoindent " copy indent from current line when starting a new line
 set background=dark
 set backspace=2 " allow for backspacing over autoindents, line breaks, and the start of inserts
 set backup " save backups
-set backupdir=~/Dropbox/vim/tmp/backup/ " save backup files here
+set backupdir=~/temp/vim/backup/ " save backup files here
 set cinwords= " no funny indents after words useful when writing C
 set clipboard+=unnamed " add the unnamed register to the clipboard
     colorscheme solarized
 set cpoptions=c " see :h cpoptions
 set debug=msg " error messages don't disappear immediately after startup
-set directory=~/Dropbox/vim/tmp/swap/ " save swap files here
+set directory=~/temp/vim/swap/ " save swap files here
 set encoding=utf-8
 set expandtab " use the appropriate number of spaces to insert a tab in Insert mode; use spaces in indents with > and < with autoindent on
 set foldlevelstart=1 " start editing with some (not all) folds closed
@@ -117,7 +117,7 @@ if has("gui_running")
   set autochdir " change to the directory of the buffer opened or switched into; not in CLI vim
   set relativenumber " count lines relative to current line
   set undofile " create an undo file
-  set undodir=~/Dropbox/vim/tmp/undo/ " put undo files here
+  set undodir=~/temp/vim/undo/ " put undo files here
 endif
 
 
@@ -175,7 +175,7 @@ autocmd Filetype py setlocal formatoptions=croql
 " -------------------------------------------------------------------
 " when vimrc is written, reload it
 autocmd! bufwritepost vimrc source ~/Dropbox/vim/vimrc
-autocmd FileType vim setlocal foldmethod=marker
+autocmd! FileType vim setlocal foldmethod=marker
 
 
 
@@ -284,6 +284,11 @@ nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gc :Gcommit<cr>
 
+
+
+" Hammer
+" -------------------------------------------------------------------
+nnoremap <leader>p :w<cr>:Hammer<cr>
 
 " }}}
 " Functions {{{
