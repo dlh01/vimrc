@@ -163,14 +163,6 @@ autocmd FileType markdown setlocal textwidth=70
 autocmd FileType txt setlocal textwidth=70
 
 
-" Python
-" -------------------------------------------------------------------
-autocmd Filetype py setlocal tabstop=4
-autocmd Filetype py setlocal shiftwidth=4
-autocmd Filetype py setlocal smarttab
-autocmd Filetype py setlocal formatoptions=croql
-
-
 " Vim
 " -------------------------------------------------------------------
 " when vimrc is written, reload it
