@@ -136,7 +136,9 @@ if MySys() == "mac"
 elseif MySys() == "linux"
     set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
     set autochdir " change to the directory of the buffer opened or switched into
+    colorscheme liquidcarbon
     if has("gui_running")
+        colorscheme solarized
         set lines=48
         set columns=170
     endif
@@ -277,10 +279,20 @@ nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gc :Gcommit<cr>
 
 
-
 " Hammer
 " -------------------------------------------------------------------
 nnoremap <leader>p :w<cr>:Hammer<cr>
+
+
+" Rainbow Parentheses
+" -------------------------------------------------------------------
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+
+
 
 " }}}
 " Functions {{{
