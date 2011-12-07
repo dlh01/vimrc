@@ -117,6 +117,7 @@ set wildignore+=*.DS_Store " OSX bullshit
 "
 if has("gui_running")
   set autochdir " change to the directory of the buffer opened or switched into; not in CLI vim
+  set nonumber " turn numbering off before turning relative numbering on
   set relativenumber " count lines relative to current line
   set undofile " create an undo file
   set undodir=~/temp/vim/undo/ " put undo files here
