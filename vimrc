@@ -6,6 +6,8 @@
 
 " https://github.com/tpope/vim-pathogen
 " Must be called before filetype stuff
+" the first line (runtime) allows putting pathogen in the /bundle dir with other plugins
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
@@ -49,8 +51,8 @@ set directory=~/temp/vim/swap/ " save swap files here
 set encoding=utf-8
 set expandtab " use the appropriate number of spaces to insert a tab in Insert mode; use spaces in indents with > and < with autoindent on
 set foldlevelstart=1 " start editing with some (not all) folds closed
-set formatoptions=tcqron " see :help fo-table
-" set formatprg=par
+"set formatoptions=tcqron " see :help fo-table
+set formatprg=par
 set gdefault " search and replace globally "/g/" by default
 set guioptions+=mg " see :h guioptions
 set guioptions-=T " no toolbar in gui
@@ -270,8 +272,8 @@ call togglebg#map("<F5>") " switch light/dark backgrounds
 
 " Gundo
 " -------------------------------------------------------------------
-nnoremap <silent> <F6> :GundoToggle<cr>
 let g:gundo_preview_bottom = 1
+nnoremap <silent> <F6> :GundoToggle<cr>
 
 
 " Fugitive
@@ -285,6 +287,7 @@ nnoremap <leader>gc :Gcommit<cr>
 " Hammer
 " -------------------------------------------------------------------
 nnoremap <leader>p :w<cr>:Hammer<cr>
+let g:HammerTemplate = "cloudapp"
 
 
 " Rainbow Parentheses
