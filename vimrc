@@ -287,7 +287,6 @@ nnoremap <leader>gc :Gcommit<cr>
 " Hammer
 " -------------------------------------------------------------------
 nnoremap <leader>p :w<cr>:Hammer<cr>
-let g:HammerTemplate = "cloudapp"
 
 
 " Rainbow Parentheses
