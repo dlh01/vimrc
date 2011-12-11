@@ -6,8 +6,6 @@
 
 " https://github.com/tpope/vim-pathogen
 " Must be called before filetype stuff
-" the first line (runtime) allows putting pathogen in the /bundle dir with other plugins
-runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
