@@ -115,6 +115,11 @@ set wildignore+=*.DS_Store " OSX bullshit
 "
 if has("gui_running")
   set autochdir " change to the directory of the buffer opened or switched into; not in CLI vim
+  set guioptions-=r " don't show scrollbars
+  set guioptions-=R " don't show scrollbars
+  set guioptions-=l " don't show scrollbars
+  set guioptions-=L " don't show scrollbars
+  set guioptions-=b " don't show scrollbars
   set nonumber " turn numbering off before turning relative numbering on
   set relativenumber " count lines relative to current line
   set undofile " create an undo file
@@ -129,7 +134,7 @@ endif
 if MySys() == "mac"
     if has("gui_running")
         set lines=80
-        set columns=140
+        set columns=170
         set guifont=Menlo:h11
         " set guifont=Droid\ Sans\ Mono:h10
     endif
@@ -287,10 +292,10 @@ nnoremap <leader>p :w<cr>:Hammer<cr>
 
 " Rainbow Parentheses
 " -------------------------------------------------------------------
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+au VimEnter html,php,css,javascript,python RainbowParenthesesToggle
+au Syntax html,php,css,javascript,python RainbowParenthesesLoadRound
+au Syntax html,php,css,javascript,python RainbowParenthesesLoadSquare
+au Syntax html,php,css,javascript,python RainbowParenthesesLoadBraces
 
 
 
