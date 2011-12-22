@@ -61,6 +61,7 @@ set linebreak " display linebreaks by word, not character
 set listchars=tab:▸\ ,eol:¬ " specify tab and EOL characters used in :set list (or :set list!)
 set matchtime=2 " milliseconds of highlighting matching bracket (from 'showmatch')
 set mousehide " hide mouse when typing
+set nohlsearch " don't highlight searches; see toggle below
 set novisualbell " my eyes!
 set number " show line numbers
 set pastetoggle=<F7> " toggle paste
@@ -257,6 +258,8 @@ nmap j gj
 nmap k gk
 " Go away, manual key
 nnoremap K <nop>
+" Toggle search highlighting
+nnoremap <F7> :set hlsearch! hlsearch?<cr>
 
 
 
