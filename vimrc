@@ -171,6 +171,11 @@ autocmd FileType markdown setlocal textwidth=70
 autocmd FileType txt setlocal textwidth=70
 
 
+" Textile
+" -------------------------------------------------------------------
+autocmd FileType textile setlocal textwidth=0
+
+
 " Vim
 " -------------------------------------------------------------------
 " when vimrc is written, reload it
@@ -262,7 +267,7 @@ nnoremap K <nop>
 " Lusty Juggler
 " -------------------------------------------------------------------
 let g:LustyJugglerShowKeys = 'a' " display key with buffer name
-" open the buffer juggler, recommended by the author
+" open the juggler buffer, recommended by the author
 map <leader>j <leader>lj
 
 
@@ -287,6 +292,7 @@ nnoremap <leader>gc :Gcommit<cr>
 
 " Hammer
 " -------------------------------------------------------------------
+let g:HammerTemplate = 'github'
 nnoremap <leader>p :w<cr>:Hammer<cr>
 
 
