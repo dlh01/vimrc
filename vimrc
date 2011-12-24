@@ -50,6 +50,7 @@ set encoding=utf-8
 set expandtab " use the appropriate number of spaces to insert a tab in Insert mode; use spaces in indents with > and < with autoindent on
 set foldlevelstart=1 " start editing with some (not all) folds closed
 set formatoptions=tcqron " see :help fo-table
+set formatprg=par\ -w70l
 set gdefault " search and replace globally "/g/" by default
 set guioptions+=mg " see :h guioptions
 set guioptions-=T " no toolbar in gui
@@ -253,8 +254,10 @@ nnoremap N Nzz
 " -------------------------------------------------------------------
 " Remap : to ;
 map ; :
-" Quickly reformat paragraph
+" Quickly reformat paragraph with par
 nmap Q gqap
+" Quickly reformat paragraph with vim options
+nmap W gwap
 " Move up and down by screen line, not file line
 nmap j gj
 nmap k gk
