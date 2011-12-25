@@ -50,7 +50,7 @@ set encoding=utf-8
 set expandtab " use the appropriate number of spaces to insert a tab in Insert mode; use spaces in indents with > and < with autoindent on
 set foldlevelstart=1 " start editing with some (not all) folds closed
 set formatoptions=tcqron " see :help fo-table
-set formatprg=par\ -w70l
+" set formatprg=par\ -w70
 set gdefault " search and replace globally "/g/" by default
 set guioptions+=mg " see :h guioptions
 set guioptions-=T " no toolbar in gui
@@ -254,10 +254,8 @@ nnoremap N Nzz
 " -------------------------------------------------------------------
 " Remap : to ;
 map ; :
-" Quickly reformat paragraph with par
+" Quickly reformat paragraph with formatprg
 nmap Q gqap
-" Quickly reformat paragraph with vim options
-nmap W gwap
 " Move up and down by screen line, not file line
 nmap j gj
 nmap k gk
@@ -306,10 +304,10 @@ nnoremap <leader>p :w<cr>:Hammer<cr>
 
 " Rainbow Parentheses
 " -------------------------------------------------------------------
-au VimEnter html,php,css,javascript,python RainbowParenthesesToggle
-au Syntax html,php,css,javascript,python RainbowParenthesesLoadRound
-au Syntax html,php,css,javascript,python RainbowParenthesesLoadSquare
-au Syntax html,php,css,javascript,python RainbowParenthesesLoadBraces
+au VimEnter html,php,css,scss,javascript,python RainbowParenthesesToggle
+au Syntax html,php,css,scss,javascript,python RainbowParenthesesLoadRound
+au Syntax html,php,css,scss,javascript,python RainbowParenthesesLoadSquare
+au Syntax html,php,css,scss,javascript,python RainbowParenthesesLoadBraces
 
 
 
