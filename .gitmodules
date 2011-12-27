@@ -13,9 +13,6 @@
 [submodule "bundle/rainbow-parentheses"]
 	path = bundle/rainbow-parentheses
 	url = git://github.com/kien/rainbow_parentheses.vim.git
-[submodule "bundle/syntastic"]
-	path = bundle/syntastic
-	url = git://github.com/scrooloose/syntastic.git
 [submodule "bundle/solarized"]
 	path = bundle/solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
