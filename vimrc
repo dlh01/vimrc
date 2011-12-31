@@ -231,8 +231,10 @@ nmap <silent> <leader>2 :sort<cr>
 nmap <leader>3 :call DumbQuotes()<cr><cr>
 " Global search and replace
 nmap <leader>5 :%s/
+" Undo *everything* (presumably)
+nmap <leader>9 :earlier 1000<cr>:echo "Undid 1000 things"<cr>
 " Wipe out all buffers (presumably)
-nmap <leader>0 :1,100bd<cr>:echo "Deleted 100 buffers"<cr>
+nmap <leader>0 :1,100bd<cr>:echo "Deleted 100 buffers (probably)"<cr>
 
 
 
