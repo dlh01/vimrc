@@ -4,9 +4,6 @@
 [submodule "bundle/gundo"]
 	path = bundle/gundo
 	url = git://github.com/sjl/gundo.vim.git
-[submodule "bundle/hammer"]
-	path = bundle/hammer
-	url = git://github.com/robgleeson/hammer.vim.git
 [submodule "bundle/html5-syntax"]
 	path = bundle/html5-syntax
 	url = git://github.com/othree/html5-syntax.vim.git
