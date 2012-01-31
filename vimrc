@@ -303,7 +303,7 @@ nnoremap <leader>gc :Gcommit<cr>
 
 " Hammer
 " -------------------------------------------------------------------
-let g:HammerTemplate = 'github'
+let g:HAMMER_TEMPLATE = 'github'
 nnoremap <leader>p :w<cr>:Hammer<cr>
 
 
