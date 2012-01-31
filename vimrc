@@ -49,7 +49,7 @@ set directory=~/temp/vim/swap/ " save swap files here
 set encoding=utf-8
 set expandtab " use the appropriate number of spaces to insert a tab in Insert mode; use spaces in indents with > and < with autoindent on
 set foldlevelstart=1 " start editing with some (not all) folds closed
-set formatoptions=tcqron " see :help fo-table
+" set formatoptions=tcqron " see :help fo-table
 " set formatprg=par\ -w70
 set gdefault " search and replace globally "/g/" by default
 set guioptions+=mg " see :h guioptions
@@ -223,8 +223,8 @@ inoremap jk <Esc>
 " Open webpage
 nmap <silent> <leader>f :! open %<cr><cr>
 " ~~ Common commands mapped to numbers ~~
-" Turn spellcheck off
-nmap <leader>1 :set nospell<cr>
+" Toggle spellcheck
+nmap <leader>1 :set spell!<cr>
 " Sort alphabetically
 nmap <silent> <leader>2 :sort<cr>
 " Quick call DumbQuotes
@@ -235,6 +235,9 @@ nmap <leader>5 :%s/
 nmap <leader>9 :earlier 1000<cr>:echo "Undid 1000 things"<cr>
 " Wipe out all buffers (presumably)
 nmap <leader>0 :1,100bd<cr>:echo "Deleted 100 buffers (probably)"<cr>
+" Set window to 80 columns or 160 columns
+nmap <leader>- :set co=80<cr>
+nmap <leader>= :set co=160<cr>
 
 
 
