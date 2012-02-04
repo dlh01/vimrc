@@ -212,6 +212,8 @@ map <leader>b :bd<cr>
 map <leader>q :q<cr>
 " Quick save and quit
 map <leader>x :x<cr>
+" Quick edit new buffer
+map <leader>n :enew<cr>
 " Quick open vimrc
 map <leader>ev :e ~/Dropbox/vim/vimrc<cr>
 " Assuming I'll never purposely write ',w' or ',x', etc, allow me to type them in insert mode
@@ -222,6 +224,9 @@ imap <leader><leader> <Esc>
 inoremap jk <Esc>
 " Open webpage
 nmap <silent> <leader>f :! open %<cr><cr>
+" Set window to 80 columns or 160 columns
+nmap <leader>[ :set co=80<cr>
+nmap <leader>] :set co=160<cr>
 " ~~ Common commands mapped to numbers ~~
 " Toggle spellcheck
 nmap <leader>1 :set spell!<cr>
@@ -235,9 +240,6 @@ nmap <leader>5 :%s/
 nmap <leader>9 :earlier 1000<cr>:echo "Undid 1000 things"<cr>
 " Wipe out all buffers (presumably)
 nmap <leader>0 :1,100bd<cr>:echo "Deleted 100 buffers (probably)"<cr>
-" Set window to 80 columns or 160 columns
-nmap <leader>- :set co=80<cr>
-nmap <leader>= :set co=160<cr>
 
 
 
