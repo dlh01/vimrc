@@ -48,7 +48,7 @@ set debug=msg " error messages don't disappear immediately after startup
 set directory=~/temp/vim/swap/ " save swap files here
 set encoding=utf-8
 set expandtab " use the appropriate number of spaces to insert a tab in Insert mode; use spaces in indents with > and < with autoindent on
-set foldlevelstart=1 " start editing with some (not all) folds closed
+set foldlevelstart=0 " start editing with some (not all) folds closed
 " set formatoptions=tcqron " see :help fo-table
 " set formatprg=par\ -w70
 set gdefault " search and replace globally "/g/" by default
@@ -221,7 +221,6 @@ imap <leader>w <C-o>:w<cr>
 imap <leader>x <C-o>:x<cr>
 " Go back to normal mode
 imap <leader><leader> <Esc>
-inoremap jk <Esc>
 " Open webpage
 nmap <silent> <leader>f :! open %<cr><cr>
 " Set window to 80 columns or 160 columns
@@ -239,7 +238,7 @@ nmap <leader>5 :%s/
 " Undo *everything* (presumably)
 nmap <leader>9 :earlier 1000<cr>:echo "Undid 1000 things"<cr>
 " Wipe out all buffers (presumably)
-nmap <leader>0 :1,100bd<cr>:echo "Deleted 100 buffers (probably)"<cr>
+nmap <leader>0 :1,100bd<cr>:echo "Deleted all buffers (probably)"<cr>
 
 
 
@@ -328,8 +327,10 @@ let g:Tex_Leader='\' " Use this leader for Vim-LaTeX-specific bindings
 function! DumbQuotes()
     :%s/’/'/g
     :%s/‘/'/g
+    :%s/’/'/g
     :%s/“/"/g
     :%s/”/"/g
+    :%s/“/"/g
     :%s/—/---/g
     :%s/–/--/g
     :%s/…/.../g
