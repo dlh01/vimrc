@@ -160,19 +160,20 @@ endif
 " Filetype-specific options {{{
 "
 
-" CSS and Less
+" CSS, SASS, Less
 " -------------------------------------------------------------------
 autocmd BufNewFile,BufRead *.less setlocal filetype=less
+autocmd BufNewFile,BufRead *.sass, *.scss setlocal filetype=sass
 
 
 " Markdown
 " -------------------------------------------------------------------
-autocmd FileType markdown setlocal textwidth=70
+autocmd FileType markdown setlocal textwidth=60
 
 
 " Plain text
 " -------------------------------------------------------------------
-autocmd FileType txt setlocal textwidth=70
+autocmd FileType txt setlocal textwidth=60
 
 
 " Textile
