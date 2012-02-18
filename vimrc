@@ -163,7 +163,7 @@ endif
 " CSS, SASS, Less
 " -------------------------------------------------------------------
 autocmd BufNewFile,BufRead *.less setlocal filetype=less
-autocmd BufNewFile,BufRead *.sass, *.scss setlocal filetype=sass
+autocmd BufNewFile,BufRead *.scss setlocal filetype=sass
 
 
 " Markdown
