@@ -236,8 +236,8 @@ imap <silent> <D-d> _
 imap <silent> <D-K> -
 imap <silent> <D-D> -
 " Move back and forth through previous and next buffers
-nnoremap <silent> ,z :bp<CR>
-nnoremap <silent> ,x :bn<CR>
+nnoremap <silent> ,m :bp<CR>
+nnoremap <silent> ,. :bn<CR>
 
 
 
