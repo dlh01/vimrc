@@ -227,6 +227,15 @@ nmap <silent> <leader>f :! open %<cr><cr>
 " Set window to 80 columns or 160 columns
 nmap <leader>[ :set co=80<cr>
 nmap <leader>] :set co=160<cr>
+" Make Y consistent with C and D
+nnoremap Y y$
+" Reduce RSI -- Make underscores and dashes easier
+imap <silent> <D-k> _
+imap <silent> <D-d> _
+imap <silent> <D-K> -
+imap <silent> <D-D> -
+
+
 " ~~ Common commands mapped to numbers ~~
 " Toggle spellcheck
 nmap <leader>1 :set spell!<cr>
