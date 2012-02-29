@@ -235,6 +235,10 @@ imap <silent> <D-k> _
 imap <silent> <D-d> _
 imap <silent> <D-K> -
 imap <silent> <D-D> -
+" Move back and forth through previous and next buffers
+nnoremap <silent> ,z :bp<CR>
+nnoremap <silent> ,x :bn<CR>
+
 
 
 " ~~ Common commands mapped to numbers ~~
