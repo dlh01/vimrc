@@ -141,7 +141,7 @@ if MySys() == "mac"
         set columns=140
         " set guifont=Menlo:h11
         " set guifont=Droid\ Sans\ Mono:h10
-        set guifont=Inconsolata:h18
+        set guifont=Inconsolata:h15
     endif
     let g:LustyJugglerSuppressRubyWarning = 1 " terminal vim lacks ruby support
 elseif MySys() == "linux"
