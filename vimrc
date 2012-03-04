@@ -84,8 +84,8 @@ set statusline+=%f    " Path.
 set statusline+=%m   " Modified flag.
 set statusline+=%r   " Readonly flag.
 set statusline+=%w   " Preview window flag.
-" set statusline+=\    " Space.
-" set statusline+=%{fugitive#statusline()}
+set statusline+=\    " Space.
+set statusline+=%{fugitive#statusline()}
 set statusline+=%=   " Right align.
 "set statusline+=(%{getcwd()})\  " get current working directory
 " File format, encoding and type.  Ex: "(unix/utf-8/python)"
@@ -164,7 +164,7 @@ endif
 " CSS, SASS, Less
 " -------------------------------------------------------------------
 autocmd BufNewFile,BufRead *.less setlocal filetype=less
-autocmd BufNewFile,BufRead *.scss setlocal filetype=sass
+autocmd BufNewFile,BufRead *.scss setlocal filetype=scss
 
 
 " Markdown
