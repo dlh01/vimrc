@@ -238,6 +238,9 @@ imap <silent> <D-D> -
 " Move back and forth through previous and next buffers
 nnoremap <silent> ,m :bp<CR>
 nnoremap <silent> ,. :bn<CR>
+" Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
 
 
 
