@@ -25,9 +25,6 @@
 [submodule "bundle/textile"]
 	path = bundle/textile
 	url = git://github.com/timcharper/textile.vim.git
-[submodule "bundle/latex"]
-	path = bundle/latex
-	url = git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex
 [submodule "bundle/hammer"]
 	path = bundle/hammer
 	url = git://github.com/dlh01/hammer.vim.git
