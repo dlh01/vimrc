@@ -334,10 +334,6 @@ au Syntax html,php,css,scss,javascript,python RainbowParenthesesLoadSquare
 au Syntax html,php,css,scss,javascript,python RainbowParenthesesLoadBraces
 
 
-" Vim-LaTeX
-" -------------------------------------------------------------------
-let g:Tex_Leader='\' " Use this leader for Vim-LaTeX-specific bindings
-
 
 " }}}
 " Functions {{{
