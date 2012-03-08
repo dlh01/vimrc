@@ -345,6 +345,12 @@ nmap <C-N> :NERDTreeToggle<cr>
 nnoremap <silent> <C-\> :NERDTreeFind<cr> 
 
 
+""
+" Tagbar
+"
+nnoremap <silent> <leader>T :TagbarToggle<cr>
+
+
 
 " }}}
 " Functions {{{
