@@ -334,6 +334,16 @@ au Syntax html,php,css,scss,javascript,python RainbowParenthesesLoadSquare
 au Syntax html,php,css,scss,javascript,python RainbowParenthesesLoadBraces
 
 
+" NERDTree
+" -------------------------------------------------------------------
+let NERDTreeMinimalUI = 1 "disable a few UI labels and text
+let NERDTreeDirArrows = 1 "use right and down arrows for dir nodes
+"Toggle NERDTree
+nmap <C-N> :NERDTreeToggle<cr>
+"Reveal the current file and places the cursor on it
+nnoremap <silent> <C-\> :NERDTreeFind<cr> 
+
+
 
 " }}}
 " Functions {{{
