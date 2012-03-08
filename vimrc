@@ -241,7 +241,8 @@ nnoremap <silent> ,. :bn<CR>
 " Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
-
+" Quick-MultiMarkdown current file to HTML
+nnoremap ,mmd :! multimarkdown -b %<cr>
 
 
 " ~~ Common commands mapped to numbers ~~
