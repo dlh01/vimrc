@@ -34,9 +34,3 @@
 [submodule "bundle/haml"]
 	path = bundle/haml
 	url = https://github.com/tpope/vim-haml.git
-[submodule "bundle/showmarks"]
-	path = bundle/showmarks
-	url = https://github.com/VimEz/ShowMarks.git
-[submodule "bundle/tagbar"]
-	path = bundle/tagbar
-	url = git://github.com/majutsushi/tagbar
