@@ -141,7 +141,7 @@ if MySys() == "mac"
         set columns=140
         " set guifont=Menlo:h11
         " set guifont=Droid\ Sans\ Mono:h10
-        set guifont=Inconsolata:h15
+        set guifont=Inconsolata:h20
     endif
     let g:LustyJugglerSuppressRubyWarning = 1 " terminal vim lacks ruby support
 elseif MySys() == "linux"
@@ -340,15 +340,13 @@ au Syntax html,php,css,scss,javascript,python RainbowParenthesesLoadBraces
 let NERDTreeMinimalUI = 1 "disable a few UI labels and text
 let NERDTreeDirArrows = 1 "use right and down arrows for dir nodes
 "Toggle NERDTree
-nmap <C-N> :NERDTreeToggle<cr>
+nmap <D-N> :NERDTreeToggle<cr>
 "Reveal the current file and places the cursor on it
 nnoremap <silent> <C-\> :NERDTreeFind<cr> 
 
 
 ""
-"
 " Tagbar
-"
 "
 nnoremap <silent> <leader>T :TagbarToggle<cr>
 
