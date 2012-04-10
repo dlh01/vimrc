@@ -1,0 +1,10 @@
+" Set your system flavor here
+fun! MySys()
+  return ""
+endfun
+
+" Set the path to the vim repository
+" set runtimepath=~/vim,~/vim/after,$VIMRUNTIME
+
+" Source the vimrc from the repository
+" source ~/vim/vimrc
