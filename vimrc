@@ -231,10 +231,14 @@ nmap <leader>] :set co=160<cr>
 " Make Y consistent with C and D
 nnoremap Y y$
 " Reduce RSI -- Make underscores and dashes easier
-imap <silent> <D-k> _
-imap <silent> <D-d> _
-imap <silent> <D-K> -
-imap <silent> <D-D> -
+" Only in the GUI, or else iTerm freaks
+if has("gui_running")
+  imap <silent> <D-k> _
+  imap <silent> <D-d> _
+  imap <silent> <D-K> -
+  imap <silent> <D-D> -
+endif
+
 " Move back and forth through previous and next buffers
 nnoremap <silent> ,m :bn<CR>
 nnoremap <silent> ,. :bp<CR>
