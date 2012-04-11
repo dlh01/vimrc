@@ -138,7 +138,7 @@ endif
 if MySys() == "mac"
     if has("gui_running")
         set lines=80
-        set columns=140
+        set columns=120
         " set guifont=Menlo:h11
         " set guifont=Droid\ Sans\ Mono:h10
         set guifont=Inconsolata:h20
