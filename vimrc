@@ -153,6 +153,7 @@ elseif MySys() == "linux"
         set lines=48
         set columns=170
     endif
+    let g:LustyJugglerSuppressRubyWarning = 1 " terminal vim lacks ruby support
 endif
 
 
